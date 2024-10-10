@@ -1,16 +1,22 @@
-<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
-    <div>
-      <label for="id">ID del producto:</label>
-      <input id="id" type="text" formControlName="id">
+<div class="bg-white shadow-lg rounded-lg p-3">
+  <form class="grid lg:grid-cols-5 gap-5 items-end" [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <div class="flex flex-col gap-2">
+      <label class="text-sm text-[#333333] leading-tight" for="id">ID del producto:</label>
+      <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" id="id" type="text" formControlName="id">
     </div>
-    <div>
-      <label for="name">Nombre del producto:</label>
-      <input id="name" type="text" formControlName="name">
+    <div class="flex flex-col gap-2">
+      <label class="text-sm text-[#333333] leading-tight" for="name">Nombre del producto:</label>
+      <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" id="name" type="text" formControlName="name">
     </div>
-    <div>
-      <label for="categorie">Categoría:</label>
-      <input id="categorie" type="text" formControlName="categorie">
+    <div class="flex flex-col gap-2">
+      <label class="text-sm text-[#333333] leading-tight" for="categorie">Categoría:</label>
+      <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" id="categorie" type="text" formControlName="categorie">
     </div>
-    <button type="submit">Aplicar Filtros</button>
-    <button type="button" (click)="clearFilters()">Limpiar Filtros</button>
+    <button class="flex items-center justify-center w-full h-10 bg-[#161616] rounded-lg text-white" type="submit">
+      <span>Aplicar Filtros</span>
+    </button>
+    <button class="flex items-center justify-center w-full h-10 border border-[#161616] rounded-lg text-[#161616]" type="button" (click)="clearFilters()">
+      <span>Limpiar Filtros</span>
+    </button>
   </form>
+</div>

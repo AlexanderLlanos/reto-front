@@ -1,47 +1,57 @@
-<h2>{{ edit ? 'Editar' : 'Crear' }} Producto</h2>
-<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" formControlName="name">
-    <div *ngIf="isFieldValid('name')" class="error-message">
-      {{ getErrorMessage('name') }}
-    </div>
+<div class="container mx-auto px-4">
+  <div class="flex items-center justify-between pt-10 pb-5">
+    <h2 class="text-[#161616] font-semibold text-2xl">{{ edit ? 'Editar' : 'Crear' }} Producto</h2>
   </div>
-  <div>
-    <label for="description">Descripción:</label>
-    <textarea id="description" formControlName="description"></textarea>
-    <div *ngIf="isFieldValid('description')" class="error-message">
-      {{ getErrorMessage('description') }}
-    </div>
+  <div class="bg-white shadow-lg rounded-lg p-3">
+    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="name">Nombre:</label>
+          <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" type="text" id="name" formControlName="name">
+          <div *ngIf="isFieldValid('name')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('name') }}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="price">Precio:</label>
+          <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" type="number" id="price" formControlName="price">
+          <div *ngIf="isFieldValid('price')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('price') }}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="categorie">Categoría:</label>
+          <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" type="text" id="categorie" formControlName="categorie">
+          <div *ngIf="isFieldValid('categorie')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('categorie') }}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="mark">Marca:</label>
+          <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" type="text" id="mark" formControlName="mark">
+          <div *ngIf="isFieldValid('mark')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('mark') }}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="stock">Stock:</label>
+          <input class="border border-[#dcdcdc] px-3 h-10 rounded-md outline-none" type="number" id="stock" formControlName="stock">
+          <div *ngIf="isFieldValid('stock')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('stock') }}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-sm text-[#333333] leading-tight" for="description">Descripción:</label>
+          <textarea class="border border-[#dcdcdc] px-3 py-2 rounded-md outline-none" id="description" formControlName="description"></textarea>
+          <div *ngIf="isFieldValid('description')" class="error-message text-xs text-[#fe3e3e]">
+            {{ getErrorMessage('description') }}
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center pt-5 gap-5">
+        <a class="flex items-center justify-center w-[300px] h-10 border border-[#161616] rounded-lg text-[#161616]" routerLink="/productos">Cancelar</a>
+        <button class="flex items-center justify-center w-[300px] h-10 bg-[#161616] rounded-lg text-white" type="submit" [disabled]="productoForm.invalid">{{ edit ? 'Actualizar' : 'Crear' }} Producto</button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label for="price">Precio:</label>
-    <input type="number" id="price" formControlName="price">
-    <div *ngIf="isFieldValid('price')" class="error-message">
-      {{ getErrorMessage('price') }}
-    </div>
-  </div>
-  <div>
-    <label for="categorie">Categoría:</label>
-    <input type="text" id="categorie" formControlName="categorie">
-    <div *ngIf="isFieldValid('categorie')" class="error-message">
-      {{ getErrorMessage('categorie') }}
-    </div>
-  </div>
-  <div>
-    <label for="mark">Marca:</label>
-    <input type="text" id="mark" formControlName="mark">
-    <div *ngIf="isFieldValid('mark')" class="error-message">
-      {{ getErrorMessage('mark') }}
-    </div>
-  </div>
-  <div>
-    <label for="stock">Stock:</label>
-    <input type="number" id="stock" formControlName="stock">
-    <div *ngIf="isFieldValid('stock')" class="error-message">
-      {{ getErrorMessage('stock') }}
-    </div>
-  </div>
-  <button type="submit" [disabled]="productoForm.invalid">{{ edit ? 'Actualizar' : 'Crear' }} Producto</button>
-</form>
-<a routerLink="/productos">Cancelar</a>
+</div>

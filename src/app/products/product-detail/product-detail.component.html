@@ -1,11 +1,21 @@
-<div *ngIf="product">
-  <h2>{{ product.name }}</h2>
-  <img [src]="product.imageUrl" [alt]="product.name" style="max-width: 300px;">
-  <p>{{ product.description }}</p>
-  <p>Precio: {{ product.price | currency }}</p>
-  <p>Categoría: {{ product.categorie }}</p>
-  <p>Marca: {{ product.mark }}</p>
-  <p>Stock: {{ product.stock }}</p>
-  <p>Fecha de creación: {{ product.newDate | date }}</p>
+<div class="container mx-auto px-4">
+  <div *ngIf="product">
+    <div class="flex items-center justify-between pt-10 pb-5">
+      <h2 class="text-[#161616] font-semibold text-2xl">{{ product.name }}</h2>
+      <a class="underline text-[#161616] text-nowrap" routerLink="/productos">Volver a la lista</a>
+    </div>
+    <div class="flex flex-col lg:flex-row items-start gap-5">
+      <div class="w-full h-[300px] md:h-[500px] lg:h-[600px] rounded-lg">
+        <img class="w-full object-cover h-full rounded-lg" [src]="product.imageUrl" [alt]="product.name">
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-5 w-full lg:w-fit lg:min-w-[500px]">
+        <p class="text-[#161616] pb-3">{{ product.description }}</p>
+        <p class="text-[#333333]">Precio: <span class="text-[#161616]">{{ product.price | currency }}</span></p>
+        <p class="text-[#333333]">Categoría: <span class="text-[#161616]">{{ product.categorie }}</span></p>
+        <p class="text-[#333333]">Marca: <span class="text-[#161616]">{{ product.mark }}</span></p>
+        <p class="text-[#333333]">Stock: <span class="text-[#161616]">{{ product.stock }}</span></p>
+        <p class="text-[#333333]">Fecha de creación: <span class="text-[#161616]">{{ product.newDate | date }}</span></p>
+      </div>
+    </div>
+  </div>
 </div>
-<a routerLink="/productos">Volver a la lista</a>

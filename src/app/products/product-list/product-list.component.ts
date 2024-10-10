@@ -10,7 +10,7 @@ import { Producto } from '../../interfaces/producto.interface';
 export class ProductListComponent implements OnInit {
   products: Producto[] = [];
   currentPage = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 8;
   totalItems = 0;
   totalPages = 0;
   currentFilters: any = {};

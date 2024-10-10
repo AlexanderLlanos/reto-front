@@ -1,20 +1,41 @@
-<h2>Lista de Productos</h2>
+<div class="container mx-auto px-4">
+  <div class="flex flex-col lg:flex-row lg:items-center justify-between pt-10 pb-5 gap-3">
+    <h2 class="text-[#161616] font-semibold text-2xl">Lista de Productos</h2>
+    <a class="flex items-center justify-center px-10 h-10 bg-[#161616] rounded-lg text-white" routerLink="/productos/nuevo">Añadir nuevo producto</a>
+  </div>
 
-<app-product-filter (filtersChanged)="onFiltersChanged($event)"></app-product-filter>
+  <app-product-filter (filtersChanged)="onFiltersChanged($event)"></app-product-filter>
 
-<ul *ngIf="products.length > 0">
-  <li *ngFor="let product of products">
-    {{ product.name }} - {{ product.price | currency }}
-    <a [routerLink]="['/productos', product.id]">Ver detalles</a>
-  </li>
-</ul>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 pt-5" *ngIf="products.length > 0">
+    <div class="bg-white shadow-xl p-3 rounded-xl" *ngFor="let product of products">
+      <div class="w-ful h-[200px] rounded-lg">
+        <img class="w-full h-full rounded-lg object-cover" [src]="product.imageUrl" [alt]="product.name">
+      </div>
+      <div class="py-2">
+        <div class="pb-2">
+          <p class="text-[#161616] font-semibold leading-tight">{{ product.name }}</p>
+          <span class="text-sm text-[#333333] leading-tight">{{ product.categorie }}</span>
+        </div>
+        <p class="text-[#161616] text-sm">{{ product.price | currency }}</p>
+      </div>
+      <a class="w-full flex items-center justify-center h-10 bg-[#161616] rounded-lg text-white" [routerLink]="['/productos', product.id]">
+        <span>Ver detalles</span>
+      </a>
+    </div>
+  </div>
 
-<p *ngIf="products.length === 0">No se encontraron productos.</p>
+  <p *ngIf="products.length === 0">No se encontraron productos.</p>
 
-<div class="pagination" *ngIf="totalPages > 1">
-  <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-  <span>Página {{ currentPage }} de {{ totalPages }}</span>
-  <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
+  <div class="flex justify-center md:justify-end my-10">
+    <div class="pagination flex items-center justify-center gap-4" *ngIf="totalPages > 1">
+      <button class="" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+        <span class="border border-[#161616] rounded-lg text-[#161616] px-3 py-2 text-sm">Atras</span>
+      </button>
+      <span class="text-sm text-[#333333]">Página {{ currentPage }} de {{ totalPages }}</span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">
+        <span class="border border-[#161616] rounded-lg text-[#161616] px-3 py-2 text-sm">Siguiente</span>
+      </button>
+    </div>
+  </div>
+
 </div>
-
-<a routerLink="/productos/nuevo">Añadir nuevo producto</a>
