@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone XYZ",
+      "description": "Smartphone de última generación con cámara de alta resolución y batería de larga duración.",
+      "price": 799.99,
+      "categorie": "smartphone",
+      "mark": "TechCo",
+      "stock": 50,
+      "newDate": "2024-10-09",
+      "imageUrl": "/assets/images/smartphone-xyz.jpg"
+    }
+  ]
+}

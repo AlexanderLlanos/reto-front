@@ -1,0 +1,11 @@
+<div *ngIf="product">
+  <h2>{{ product.name }}</h2>
+  <img [src]="product.imageUrl" [alt]="product.name" style="max-width: 300px;">
+  <p>{{ product.description }}</p>
+  <p>Precio: {{ product.price | currency }}</p>
+  <p>Categoría: {{ product.categorie }}</p>
+  <p>Marca: {{ product.mark }}</p>
+  <p>Stock: {{ product.stock }}</p>
+  <p>Fecha de creación: {{ product.newDate | date }}</p>
+</div>
+<a routerLink="/products">Volver a la lista</a>
