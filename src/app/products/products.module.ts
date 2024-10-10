@@ -6,6 +6,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductFormController } from './product-form/product-form.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 
 
@@ -13,7 +14,8 @@ import { ProductFormController } from './product-form/product-form.component';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ProductFormController
+    ProductFormController,
+    ProductFilterComponent
   ],
   imports: [
     CommonModule,

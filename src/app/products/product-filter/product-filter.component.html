@@ -1,0 +1,16 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <div>
+      <label for="id">ID del producto:</label>
+      <input id="id" type="text" formControlName="id">
+    </div>
+    <div>
+      <label for="name">Nombre del producto:</label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    <div>
+      <label for="categorie">Categoría:</label>
+      <input id="categorie" type="text" formControlName="categorie">
+    </div>
+    <button type="submit">Aplicar Filtros</button>
+    <button type="button" (click)="clearFilters()">Limpiar Filtros</button>
+  </form>

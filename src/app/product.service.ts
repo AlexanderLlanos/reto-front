@@ -23,10 +23,17 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(page: number = 1, perPage: number = 10): Observable<{ products: Producto[], total: number, currentPage: number, totalPages: number }> {
+  getProducts(page: number = 1, perPage: number = 10, filters: any = {}): Observable<{ products: Producto[], total: number, currentPage: number, totalPages: number }> {
     let params = new HttpParams()
       .set('_page', page.toString())
       .set('_per_page', perPage.toString());
+
+    // Add filters to params
+    Object.keys(filters).forEach(key => {
+      if (filters[key]) {
+        params = params.set(key, filters[key]);
+      }
+    });
 
     return this.http.get<ApiResponse>(this.apiUrl, { params })
       .pipe(

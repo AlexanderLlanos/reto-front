@@ -1,5 +1,7 @@
 <h2>Lista de Productos</h2>
 
+<app-product-filter (filtersChanged)="onFiltersChanged($event)"></app-product-filter>
+
 <ul *ngIf="products.length > 0">
   <li *ngFor="let product of products">
     {{ product.name }} - {{ product.price | currency }}

@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   itemsPerPage = 10;
   totalItems = 0;
   totalPages = 0;
+  currentFilters: any = {};
 
   constructor(private productService: ProductService) {}
 
@@ -21,7 +22,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productService.getProducts(this.currentPage, this.itemsPerPage).subscribe(
+    this.productService.getProducts(this.currentPage, this.itemsPerPage, this.currentFilters).subscribe(
       data => {
         this.products = data.products;
         this.totalItems = data.total;
@@ -38,6 +39,12 @@ export class ProductListComponent implements OnInit {
 
   onPageChange(page: number) {
     this.currentPage = page;
+    this.loadProducts();
+  }
+
+  onFiltersChanged(filters: any) {
+    this.currentFilters = filters;
+    this.currentPage = 1; // Reset to first page when filters change
     this.loadProducts();
   }
 
