@@ -450,6 +450,17 @@
       "stock": 20,
       "newDate": "2024-10-10",
       "imageUrl": "https://picsum.photos/600/600"
+    },
+    {
+      "id": "a396",
+      "name": "Apple Watch",
+      "description": "Nuevo reloj inteligente",
+      "price": 1400,
+      "categorie": "relojes",
+      "mark": "Apple",
+      "stock": 15,
+      "newDate": "2024-10-10",
+      "imageUrl": "https://picsum.photos/600/600"
     }
   ]
 }

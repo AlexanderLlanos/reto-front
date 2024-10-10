@@ -9,13 +9,39 @@ import { Producto } from '../../interfaces/producto.interface';
 })
 export class ProductListComponent implements OnInit {
   products: Producto[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
+  totalItems = 0;
+  totalPages = 0;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
-      data => this.products = data,
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.productService.getProducts(this.currentPage, this.itemsPerPage).subscribe(
+      data => {
+        this.products = data.products;
+        this.totalItems = data.total;
+        this.currentPage = data.currentPage;
+        this.totalPages = data.totalPages;
+        console.log('Productos cargados:', this.products.length);
+        console.log('Total items:', this.totalItems);
+        console.log('Página actual:', this.currentPage);
+        console.log('Total de páginas:', this.totalPages);
+      },
       error => console.error('Error al obtener productos', error)
     );
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.loadProducts();
+  }
+
+  getTotalPages(): number {
+    return this.totalPages;
   }
 }

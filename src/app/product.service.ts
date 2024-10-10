@@ -1,8 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Producto } from './interfaces/producto.interface';
+
+interface ApiResponse {
+  first: number;
+  prev: number | null;
+  next: number | null;
+  last: number;
+  pages: number;
+  items: number;
+  data: Producto[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +23,27 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<any[]> {
-    return this.http.get<Producto[]>(this.apiUrl);
+  getProducts(page: number = 1, perPage: number = 10): Observable<{ products: Producto[], total: number, currentPage: number, totalPages: number }> {
+    let params = new HttpParams()
+      .set('_page', page.toString())
+      .set('_per_page', perPage.toString());
+
+    return this.http.get<ApiResponse>(this.apiUrl, { params })
+      .pipe(
+        map(response => ({
+          products: response.data,
+          total: response.items,
+          currentPage: page,
+          totalPages: response.pages
+        }))
+      );
   }
 
-  getProduct(id: number): Observable<any> {
-    return this.http.get<Producto[]>(`${this.apiUrl}/${id}`);
+  getProduct(id: string): Observable<Producto> {
+    return this.http.get<Producto>(`${this.apiUrl}/${id}`);
   }
 
-  crearProducto(producto: any): Observable<any> {
+  crearProducto(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(this.apiUrl, producto);
   }
 }

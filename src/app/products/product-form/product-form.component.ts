@@ -26,7 +26,7 @@ export class ProductFormController implements OnInit {
       mark: ['', Validators.required],
       stock: [0, [Validators.required, Validators.min(0)]],
       newDate: [new Date().toISOString().split('T')[0], Validators.required],
-      imageUrl: ['/assets/images/placeholder.jpg', Validators.required]
+      imageUrl: ['https://picsum.photos/600/600', Validators.required]
     });
   }
 
