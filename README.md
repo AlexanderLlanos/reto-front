@@ -33,13 +33,13 @@
 
 1. Inicia el servidor de desarrollo de Angular:
    ```
-   ng serve
+   npm run start
    ```
    Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
 2. En otra terminal, inicia json-server para simular el backend:
    ```
-   json-server --watch db.json
+   npm run server
    ```
    Esto iniciará el servidor en `http://localhost:3000`.
 
