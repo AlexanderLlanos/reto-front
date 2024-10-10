@@ -441,7 +441,15 @@
       "imageUrl": "https://picsum.photos/600/600"
     },
     {
-      "id": "4664"
+      "id": "4340",
+      "name": "iPhone 16 Pro Max",
+      "description": "Nuevo iPhone",
+      "price": 6200,
+      "categorie": "Celulares",
+      "mark": "Apple",
+      "stock": 20,
+      "newDate": "2024-10-10",
+      "imageUrl": "https://picsum.photos/600/600"
     }
   ]
 }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../product.service';
+import { Producto } from '../../interfaces/producto.interface';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.sass']
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products: any[] = [];
+  products: Producto[] = [];
 
   constructor(private productService: ProductService) {}
 

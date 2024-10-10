@@ -1,27 +1,45 @@
-# RetoFront
+## Características
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+- Listado de productos
+- Visualización de detalles de producto
+- Creación de nuevos productos
+- Backend simulado con json-server
 
-## Development server
+## Requisitos Previos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js (versión 12.x o superior)
+- npm (normalmente viene con Node.js)
+- Angular CLI (versión 15.x)
 
-## Code scaffolding
+## Instalación
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clona este repositorio:
+   ```
+   git clone https://github.com/AlexanderLlanos/reto-front.git
+   cd producto-app
+   ```
 
-## Build
+2. Instala las dependencias:
+   ```
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Instala json-server globalmente (si aún no lo has hecho):
+   ```
+   npm install -g json-server
+   ```
 
-## Running unit tests
+## Ejecución
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Inicia el servidor de desarrollo de Angular:
+   ```
+   ng serve
+   ```
+   Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-## Running end-to-end tests
+2. En otra terminal, inicia json-server para simular el backend:
+   ```
+   json-server --watch db.json
+   ```
+   Esto iniciará el servidor en `http://localhost:3000`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

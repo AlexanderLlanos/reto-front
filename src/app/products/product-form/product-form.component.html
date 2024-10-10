@@ -1,29 +1,47 @@
 <h2>{{ edit ? 'Editar' : 'Crear' }} Producto</h2>
-<form (ngSubmit)="onSubmit()">
+<form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="name">name:</label>
-    <input type="text" id="name" [(ngModel)]="product.name" name="name" required>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="isFieldValid('name')" class="error-message">
+      {{ getErrorMessage('name') }}
+    </div>
   </div>
   <div>
     <label for="description">Descripción:</label>
-    <textarea id="description" [(ngModel)]="product.description" name="description" required></textarea>
+    <textarea id="description" formControlName="description"></textarea>
+    <div *ngIf="isFieldValid('description')" class="error-message">
+      {{ getErrorMessage('description') }}
+    </div>
   </div>
   <div>
     <label for="price">Precio:</label>
-    <input type="number" id="price" [(ngModel)]="product.price" name="price" required>
+    <input type="number" id="price" formControlName="price">
+    <div *ngIf="isFieldValid('price')" class="error-message">
+      {{ getErrorMessage('price') }}
+    </div>
   </div>
   <div>
     <label for="categorie">Categoría:</label>
-    <input type="text" id="categorie" [(ngModel)]="product.categorie" name="categorie" required>
+    <input type="text" id="categorie" formControlName="categorie">
+    <div *ngIf="isFieldValid('categorie')" class="error-message">
+      {{ getErrorMessage('categorie') }}
+    </div>
   </div>
   <div>
     <label for="mark">Marca:</label>
-    <input type="text" id="mark" [(ngModel)]="product.mark" name="mark" required>
+    <input type="text" id="mark" formControlName="mark">
+    <div *ngIf="isFieldValid('mark')" class="error-message">
+      {{ getErrorMessage('mark') }}
+    </div>
   </div>
   <div>
     <label for="stock">Stock:</label>
-    <input type="number" id="stock" [(ngModel)]="product.stock" name="stock" required>
+    <input type="number" id="stock" formControlName="stock">
+    <div *ngIf="isFieldValid('stock')" class="error-message">
+      {{ getErrorMessage('stock') }}
+    </div>
   </div>
-  <button type="submit">{{ edit ? 'Actualizar' : 'Crear' }} Producto</button>
+  <button type="submit" [disabled]="productoForm.invalid">{{ edit ? 'Actualizar' : 'Crear' }} Producto</button>
 </form>
 <a routerLink="/productos">Cancelar</a>
