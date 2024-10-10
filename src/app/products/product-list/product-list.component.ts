@@ -7,13 +7,13 @@ import { ProductService } from '../../product.service';
   styleUrls: ['./product-list.component.sass']
 })
 export class ProductListComponent implements OnInit {
-  product: any[] = [];
+  products: any[] = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe(
-      data => this.product = data,
+      data => this.products = data,
       error => console.error('Error al obtener productos', error)
     );
   }

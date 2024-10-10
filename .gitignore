@@ -1,0 +1,73 @@
+# Sistema operativo
+####################
+# Archivos de macOS
+.DS_Store
+# Archivos de Linux
+*.swp
+# Archivos de Windows
+Thumbs.db
+desktop.ini
+
+# Dependencias
+##############
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+.Python
+
+# Ruby
+*.gem
+*.rbc
+vendor/bundle
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+
+# Build
+########
+dist/
+build/
+tmp/
+*.o
+*.obj
+*.exe
+*.out
+*.log
+
+# Archivos de configuración local
+#################################
+*.env
+*.local
+*.secret
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Otros
+#######
+# Archivos comprimidos
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Archivos binarios
+*.exe
+*.dll
+*.so
+*.dylib
